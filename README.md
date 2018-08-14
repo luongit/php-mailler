@@ -6,66 +6,64 @@ Build status: [![Build Status](https://travis-ci.org/PHPMailer/PHPMailer.svg)](h
 [![Scrutinizer Quality Score](https://scrutinizer-ci.com/g/PHPMailer/PHPMailer/badges/quality-score.png?s=3758e21d279becdf847a557a56a3ed16dfec9d5d)](https://scrutinizer-ci.com/g/PHPMailer/PHPMailer/)
 [![Code Coverage](https://scrutinizer-ci.com/g/PHPMailer/PHPMailer/badges/coverage.png?s=3fe6ca5fe8cd2cdf96285756e42932f7ca256962)](https://scrutinizer-ci.com/g/PHPMailer/PHPMailer/)
 
-## Class Features
+## Tính năng của class
 
-- Probably the world's most popular code for sending email from PHP!
-- Used by many open-source projects: Drupal, SugarCRM, Yii, Joomla! and many more
-- Integrated SMTP support - send without a local mail server
-- Send emails with multiple TOs, CCs, BCCs and REPLY-TOs
-- Multipart/alternative emails for mail clients that do not read HTML email
-- Support for UTF-8 content and 8bit, base64, binary, and quoted-printable encodings
-- SMTP authentication with LOGIN, PLAIN, NTLM and CRAM-MD5 mechanisms over SSL and TLS transports
-- Native language support
-- DKIM and S/MIME signing support
-- Compatible with PHP 5.0 and later
-- Much more!
+- Coi là thư viện phổ biến nhất trên thế giới để gửi email từ PHP!
+- Được sử dụng bởi nhiều dự án mã nguồn mở: Drupal, SugarCRM, Yii, Joomla! và nhiều cái khác
+- Hỗ trợ SMTP tích hợp - gửi mà không cần máy chủ thư cục bộ
+- Gửi email với nhiều TO, CC, BCC và REPLY-TO
+- Multipart / email thay thế cho ứng dụng thư khách không đọc email HTML
+- Hỗ trợ nội dung UTF-8 và mã hóa 8 bit, base64, nhị phân và có thể in được
+- Xác thực SMTP với các cơ chế LOGIN, PLAIN, NTLM và CRAM-MD5 qua giao thức SSL và TLS
+- Hỗ trợ ngôn ngữ bản địa
+- Hỗ trợ ký DKIM và S / MIME
+- Tương thích với PHP 5.0 trở lên
+- Nhiều hơn nữa!
 
-## Why you might need it
+## Tại sao nên sử dụng nó
 
-Many PHP developers utilize email in their code. The only PHP function that supports this is the mail() function. However, it does not provide any assistance for making use of popular features such as HTML-based emails and attachments.
+Nhiều nhà phát triển PHP sử dụng email trong mã của họ. Hàm PHP duy nhất hỗ trợ điều này là hàm mail (). Tuy nhiên, nó không cung cấp bất kỳ hỗ trợ nào cho việc sử dụng các tính năng phổ biến như email và tệp đính kèm dựa trên HTML.
 
-Formatting email correctly is surprisingly difficult. There are myriad overlapping RFCs, requiring tight adherence to horribly complicated formatting and encoding rules - the vast majority of code that you'll find online that uses the mail() function directly is just plain wrong!
-*Please* don't be tempted to do it yourself - if you don't use PHPMailer, there are many other excellent libraries that you should look at before rolling your own - try SwiftMailer, Zend_Mail, eZcomponents etc.
+Định dạng email chính xác là khó khăn. Có vô số RFC chồng chéo, yêu cầu tuân thủ chặt chẽ các quy tắc và định dạng mã hóa phức tạp khủng khiếp - phần lớn mã mà bạn sẽ tìm thấy trực tuyến sử dụng hàm mail () trực tiếp thường là false!
+Nếu bạn không sử dụng PHPMailer, có rất nhiều thư viện tuyệt vời khác mà bạn nên xem xét trước khi tự mình cuộn - hãy thử SwiftMailer, Zend_Mail, eZcomponents, v.v.
 
-The PHP mail() function usually sends via a local mail server, typically fronted by a `sendmail` binary on Linux, BSD and OS X platforms, however, Windows usually doesn't include a local mail server; PHPMailer's integrated SMTP implementation allows email sending on Windows platforms without a local mail server.
+Hàm PHP mail () thường gửi qua một máy chủ thư cục bộ, thường được đặt trước bởi một phân tử `sendmail` trên các nền tảng Linux, BSD và OS X, tuy nhiên, Windows thường không bao gồm một máy chủ thư cục bộ; Việc triển khai SMTP tích hợp của PHPMailer cho phép gửi email trên nền tảng Windows mà không cần máy chủ thư cục bộ.
 
-## License
+## Giấy phép
+Phần mềm này được cấp phép theo [LGPL 2.1] (http://www.gnu.org/licenses/lgpl-2.1.html). Vui lòng đọc LICENSE để biết thông tin về
+khả năng và phân phối phần mềm.
 
-This software is licenced under the [LGPL 2.1](http://www.gnu.org/licenses/lgpl-2.1.html). Please read LICENSE for information on the
-software availability and distribution.
+## Cài đặt và tải
 
-## Installation & loading
+PHPMailer có sẵn thông qua [Composer / Packagist] (https://packagist.org/packages/phpmailer/phpmailer). Ngoài ra, chỉ cần sao chép nội dung của thư mục PHPMailer vào một nơi nào đó trong cài đặt PHP `include_path` của bạn. Nếu bạn không nói git hoặc chỉ muốn tarball, hãy nhấp vào nút 'zip' ở đầu trang trong GitHub.
 
-PHPMailer is available via [Composer/Packagist](https://packagist.org/packages/phpmailer/phpmailer). Alternatively, just copy the contents of the PHPMailer folder into somewhere that's in your PHP `include_path` setting. If you don't speak git or just want a tarball, click the 'zip' button at the top of the page in GitHub.
+PHPMailer cung cấp một trình nạp tự động tương thích với SPL, và đó là cách ưa thích để tải thư viện - chỉ cần `require '/path/to/PHPMailerAutoload.php';` và mọi thứ sẽ hoạt động. Trình nạp tự động không ném lỗi nếu nó không thể tìm thấy các lớp để nó tự thêm vào danh sách SPL, cho phép trình nạp tự động của chính bạn (hoặc khung công tác của bạn) bắt lỗi. Tự động tải SPL được giới thiệu trong PHP 5.1.0, vì vậy nếu bạn đang sử dụng một phiên bản cũ hơn bạn sẽ cần phải yêu cầu / bao gồm mỗi lớp theo cách thủ công.
+PHPMailer không * không * khai báo một vùng tên vì các không gian tên chỉ được giới thiệu trong PHP 5.3.
+### Cài đặt và sử dụng
+- Tải thư viện về và giả nén vào thư mục gốc của dự án
+- VD: giửi nén vào thư mục mail trong dự án và cách sử dụng như veis dụ sau
 
-PHPMailer provides an SPL-compatible autoloader, and that is the preferred way of loading the library - just `require '/path/to/PHPMailerAutoload.php';` and everything should work. The autoloader does not throw errors if it can't find classes so it prepends itself to the SPL list, allowing your own (or your framework's) autoloader to catch errors. SPL autoloading was introduced in PHP 5.1.0, so if you are using a version older than that you will need to require/include each class manually.
-PHPMailer does *not* declare a namespace because namespaces were only introduced in PHP 5.3.
-
-### Minimal installation
-
-While installing the entire package manually or with composer is simple, convenient and reliable, you may want to include only vital files in your project. At the very least you will need [class.phpmailer.php](class.phpmailer.php). If you're using SMTP, you'll need [class.smtp.php](class.smtp.php), and if you're using POP-before SMTP, you'll need [class.pop3.php](class.pop3.php). For all of these, we recommend you use [the autoloader](PHPMailerAutoload.php) too as otherwise you will either have to `require` all classes manually or use some other autoloader. You can skip the [language](language/) folder if you're not showing errors to users and can make do with English-only errors. You may need the additional classes in the [extras](extras/) folder if you are using those features, including NTLM authentication, advanced HTML-to-text conversion and ics generation.
-
-## A Simple Example
+## Ví dụ
 
 ```php
 <?php
-require 'PHPMailerAutoload.php';
+require 'mail/PHPMailerAutoload.php';
 
 $mail = new PHPMailer;
 
 //$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
 $mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'smtp1.example.com;smtp2.example.com';  // Specify main and backup SMTP servers
+$mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'user@example.com';                 // SMTP username
-$mail->Password = 'secret';                           // SMTP password
+$mail->Username = 'di_chi_email_cua_ban@gmail.com';                 // SMTP username
+$mail->Password = 'mat_khau_dang_nhap_email';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 587;                                    // TCP port to connect to
 
-$mail->From = 'from@example.com';
-$mail->FromName = 'Mailer';
-$mail->addAddress('joe@example.net', 'Joe User');     // Add a recipient
+$mail->From = 'dia_chi_gui_mail@gmail.com';
+$mail->FromName = 'Tiêu đề mail';
+$mail->addAddress('dia_chi_nhan_mail@example.net', 'Tên người nhận');     // Add a recipient
 $mail->addAddress('ellen@example.com');               // Name is optional
 $mail->addReplyTo('info@example.com', 'Information');
 $mail->addCC('cc@example.com');
@@ -87,65 +85,3 @@ if(!$mail->send()) {
     echo 'Message has been sent';
 }
 ```
-
-You'll find plenty more to play with in the [examples](examples/) folder.
-
-That's it. You should now be ready to use PHPMailer!
-
-## Localization
-PHPMailer defaults to English, but in the [language](language/) folder you'll find numerous (39 at the time of writing) translations for PHPMailer error messages that you may encounter. Their filenames contain [ISO 639-1](http://en.wikipedia.org/wiki/ISO_639-1) language code for the translations, for example `fr` for French. To specify a language, you need to tell PHPMailer which one to use, like this:
-
-```php
-// To load the French version
-$mail->setLanguage('fr', '/optional/path/to/language/directory/');
-```
-
-We welcome corrections and new languages - if you're looking for corrections to do, run the [phpmailerLangTest.php](test/phpmailerLangTest.php) script in the tests folder and it will show any missing translations.
-
-## Documentation
-
-Generated documentation is [available online](http://phpmailer.github.io/PHPMailer/).
-
-You'll find some basic user-level docs in the [docs](docs/) folder, and you can generate complete API-level documentation using the [generatedocs.sh](docs/generatedocs.sh) shell script in the docs folder, though you'll need to install [PHPDocumentor](http://www.phpdoc.org) first. You may find [the unit tests](test/phpmailerTest.php) a good source of how to do various operations such as encryption.
-
-## Tests
-
-There is a PHPUnit test script in the [test](test/) folder.
-
-Build status: [![Build Status](https://travis-ci.org/PHPMailer/PHPMailer.svg)](https://travis-ci.org/PHPMailer/PHPMailer)
-
-If this isn't passing, is there something you can do to help?
-
-## Contributing
-
-Please submit bug reports, suggestions and pull requests to the [GitHub issue tracker](https://github.com/PHPMailer/PHPMailer/issues).
-
-We're particularly interested in fixing edge-cases, expanding test coverage and updating translations.
-
-With the move to the PHPMailer GitHub organisation, you'll need to update any remote URLs referencing the old GitHub location with a command like this from within your clone:
-
-`git remote set-url upstream https://github.com/PHPMailer/PHPMailer.git`
-
-Please *don't* use the SourceForge or Google Code projects any more.
-
-## Changelog
-
-See [changelog](changelog.md).
-
-## History
-- PHPMailer was originally written in 2001 by Brent R. Matzelle as a [SourceForge project](http://sourceforge.net/projects/phpmailer/).
-- Marcus Bointon (coolbru on SF) and Andy Prevost (codeworxtech) took over the project in 2004.
-- Became an Apache incubator project on Google Code in 2010, managed by Jim Jagielski.
-- Marcus created his fork on [GitHub](https://github.com/Synchro/PHPMailer).
-- Jim and Marcus decide to join forces and use GitHub as the canonical and official repo for PHPMailer.
-- PHPMailer moves to the [PHPMailer organisation](https://github.com/PHPMailer) on GitHub.
-
-### What's changed since moving from SourceForge?
-- Official successor to the SourceForge and Google Code projects.
-- Test suite.
-- Continuous integration with Travis-CI.
-- Composer support.
-- Public development.
-- Additional languages and language strings.
-- CRAM-MD5 authentication support.
-- Preserves full repo history of authors, commits and branches from the original SourceForge project.
